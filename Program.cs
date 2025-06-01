@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
+using WebApplication1.Models.Requests;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,6 +45,6 @@ app.MapRazorPages()
    .WithStaticAssets();
 
 app.MapGet("/api/hello", () => "Hello World!");
-app.MapPost("/api/data", (MyModel model) => Results.Ok(model));
+app.MapPost("/api/quizAnswerSubmission", (QuizAnswerSubmission model) => Results.Ok(model));
 
 app.Run();
