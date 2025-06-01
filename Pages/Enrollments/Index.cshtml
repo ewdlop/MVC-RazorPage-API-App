@@ -1,0 +1,91 @@
+﻿@page
+@using WebApplication1.Pages.Enrollments
+@model WebApplication1.Pages.Enrollments.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollment[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollment[0].Progress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollment[0].PricePaid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollment[0].EnrolledAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollment[0].CompletedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollment[0].LastAccessedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollment[0].CertificateIssuedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollment[0].CertificateUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollment[0].User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollment[0].Course)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Enrollment) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Progress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PricePaid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrolledAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompletedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastAccessedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CertificateIssuedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CertificateUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.Description)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.EnrollmentId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.EnrollmentId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.EnrollmentId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

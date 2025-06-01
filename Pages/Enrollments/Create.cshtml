@@ -1,0 +1,78 @@
+﻿@page
+@model WebApplication1.Pages.Enrollments.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+        
+<h1>Create</h1>
+        
+<h4>Enrollment</h4>
+<hr />
+<div class="row">
+<div class="col-md-4">
+<form method="post">
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Enrollment.Status" class="control-label"></label>
+            <select asp-for="Enrollment.Status" class="form-control"></select>
+            <span asp-validation-for="Enrollment.Status" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Enrollment.Progress" class="control-label"></label>
+            <input asp-for="Enrollment.Progress" class="form-control" />
+            <span asp-validation-for="Enrollment.Progress" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Enrollment.PricePaid" class="control-label"></label>
+            <input asp-for="Enrollment.PricePaid" class="form-control" />
+            <span asp-validation-for="Enrollment.PricePaid" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Enrollment.EnrolledAt" class="control-label"></label>
+            <input asp-for="Enrollment.EnrolledAt" class="form-control" />
+            <span asp-validation-for="Enrollment.EnrolledAt" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Enrollment.CompletedAt" class="control-label"></label>
+            <input asp-for="Enrollment.CompletedAt" class="form-control" />
+            <span asp-validation-for="Enrollment.CompletedAt" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Enrollment.LastAccessedAt" class="control-label"></label>
+            <input asp-for="Enrollment.LastAccessedAt" class="form-control" />
+            <span asp-validation-for="Enrollment.LastAccessedAt" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Enrollment.CertificateIssuedAt" class="control-label"></label>
+            <input asp-for="Enrollment.CertificateIssuedAt" class="form-control" />
+            <span asp-validation-for="Enrollment.CertificateIssuedAt" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Enrollment.CertificateUrl" class="control-label"></label>
+            <input asp-for="Enrollment.CertificateUrl" class="form-control" />
+            <span asp-validation-for="Enrollment.CertificateUrl" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <span class="text-danger">*</span>
+            <label asp-for="Enrollment.UserId" class="control-label"></label>
+            <select asp-for="Enrollment.UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Enrollment.CourseId" class="control-label"></label>
+            <select asp-for="Enrollment.CourseId" class ="form-control" asp-items="ViewBag.CourseId"></select>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
