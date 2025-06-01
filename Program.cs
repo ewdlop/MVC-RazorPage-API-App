@@ -43,4 +43,7 @@ app.MapControllerRoute(
 app.MapRazorPages()
    .WithStaticAssets();
 
+app.MapGet("/api/hello", () => "Hello World!");
+app.MapPost("/api/data", (MyModel model) => Results.Ok(model));
+
 app.Run();
